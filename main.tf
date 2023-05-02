@@ -24,6 +24,8 @@ resource "azurerm_resource_group" "myresourcegroup" {
 
   tags = {
     environment = "Production"
+    Department  = devops
+    Billable    = true
   }
 }
 
@@ -133,10 +135,7 @@ resource "azurerm_linux_virtual_machine" "catapp" {
 
   }
 
-  tags = {
-    department = devops
-    billable = true
-  }
+  tags = {}
 
   # Added to allow destroy to work correctly.
   depends_on = [azurerm_network_interface_security_group_association.catapp-nic-sg-ass]
